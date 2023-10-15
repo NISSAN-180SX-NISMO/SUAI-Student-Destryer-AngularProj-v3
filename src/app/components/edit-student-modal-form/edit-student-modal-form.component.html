@@ -1,0 +1,58 @@
+
+  <div class="modal fade" id="editStudentModalForm" tabindex="-1" aria-labelledby="studentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="studentModalLabel1" *ngIf="!isEditMode">Информация о студенте</h5>
+          <h5 class="modal-title" id="studentModalLabel2" *ngIf="isEditMode">Изменить данные о студенте</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Имя:</label>
+              <input type="text" class="form-control" id="name" disabled readonly [(ngModel)]="student.name" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="mb-3">
+              <label for="surname" class="form-label">Фимилия:</label>
+              <input type="text" class="form-control" id="surname" disabled readonly [(ngModel)]="student.surname" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="mb-3">
+              <label for="patronymic" class="form-label" >Отчество (при наличии):</label>
+              <input type="text" class="form-control" id="patronymic" disabled readonly [(ngModel)]="student.patronymic" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="mb-3">
+              <label for="variant" class="form-label">Вариант</label>
+              <input type="text" class="form-control" id="variant" *ngIf="!isEditMode" disabled readonly  [(ngModel)]="student.variant" [ngModelOptions]="{standalone: true}">
+              <input type="number" class="form-control" id="variant1" *ngIf="isEditMode" [(ngModel)]="student.variant" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="mb-3">
+              <label for="works" class="form-label">Количество сданных работ</label>
+              <input type="text" class="form-control" id="works" *ngIf="!isEditMode" disabled readonly [(ngModel)]="student.worksSubmitted" [ngModelOptions]="{standalone: true}">
+              <input type="number" class="form-control" id="works1" *ngIf="isEditMode" [(ngModel)]="student.worksSubmitted" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="mb-3">
+              <label for="rating" class="form-label">Рейтинг</label>
+              <input type="text" class="form-control" id="rating" *ngIf="!isEditMode" disabled readonly [(ngModel)]="student.rating" [ngModelOptions]="{standalone: true}">
+              <input type="number" class="form-control" id="rating1" *ngIf="isEditMode" [(ngModel)]="student.rating" [ngModelOptions]="{standalone: true}">
+            </div>
+
+
+
+            <!-- Режим 2: Просмотр данных студента -->
+            <div class="modal-footer" *ngIf="!isEditMode">
+              <button type="button" class="btn btn-primary" (click)="isEditMode = !isEditMode">Изменить</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Назад</button>
+            </div>
+
+            <!-- Режим 3: Изменение данных студента -->
+            <div class="modal-footer" *ngIf="isEditMode">
+              <button type="button" class="btn btn-primary" (click)="save()" data-bs-dismiss="modal">Сохранить</button>
+              <button type="button" class="btn btn-secondary" (click)="discard()">Отмена</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+

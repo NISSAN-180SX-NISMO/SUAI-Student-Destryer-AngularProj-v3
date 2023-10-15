@@ -1,0 +1,15 @@
+.navbar {
+  background-image: linear-gradient(to right, #5f00a4, #9a06ff); /* Градиентный фон */
+  background-color: transparent; /* Прозрачный фон */
+  /* Другие стили для навбара, если необходимо */
+}
+.navbar .navbar-brand {
+  color: white; /* Задает цвет текста в навбаре */
+}
+
+#error::placeholder {
+  color: #a10000; /* Цвет плейсхолдера */
+}
+
+
+

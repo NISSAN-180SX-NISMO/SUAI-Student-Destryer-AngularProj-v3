@@ -1,0 +1,49 @@
+<error-message-modal-form></error-message-modal-form>
+<create-student-modal-form></create-student-modal-form>
+<edit-student-modal-form></edit-student-modal-form>
+
+
+
+<nav class="navbar  navbar-expand-lg">
+
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Студенты ГУАП</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!--<button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#createStudentModalForm">Добавить студента</button>-->
+        <button type="button" class="btn btn-outline-light" (click)="openCreateStudentModalFormComponent()">Добавить студента</button>
+      </ul>
+
+
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" id="findStudent" type="search" placeholder="Введите ФИО" aria-label="Введите ФИО" [(ngModel)]="searchQuery" [ngModelOptions]="{standalone: true}" style="width: 400px;">
+        <button class="btn btn-outline-light" type="submit" (click)="searchStudent()">Поиск</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<table class="table table-striped  table-bordered">
+  <thead>
+  <tr class="active">
+    <th>№</th>
+    <th>ФИО студента</th>
+    <th>Вариат</th>
+    <th>Работ сдано</th>
+    <th>Рейтинг</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of students.getAll(); let i = index">
+    <td>{{i + 1}}</td>
+    <td>{{student?.surname}} {{student?.name}} {{student?.patronymic}}</td>
+    <td>{{student?.variant}}</td>
+    <td>{{student?.worksSubmitted}}</td>
+    <td>{{student?.rating}}</td>
+  </tr>
+  </tbody>
+</table>
