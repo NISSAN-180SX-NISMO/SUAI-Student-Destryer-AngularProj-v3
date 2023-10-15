@@ -9,10 +9,11 @@ import {HttpClientModule} from "@angular/common/http";
 import { CreateStudentModalFormComponent } from './components/create-student-modal-form/create-student-modal-form.component';
 import { NgOptimizedImage } from "@angular/common";
 import { StudentsService } from "./services/students.service";
-import { FormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NgbActiveModal, NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { EditStudentModalFormComponent } from './components/edit-student-modal-form/edit-student-modal-form.component';
 import {NumericValidatorDirective} from "./validators/numeric-validator";
+import { ErrorMessageModalFormComponent } from './components/error-message-modal-form/error-message-modal-form.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +21,17 @@ import {NumericValidatorDirective} from "./validators/numeric-validator";
     StudentTableComponent,
     CreateStudentModalFormComponent,
     EditStudentModalFormComponent,
-    NumericValidatorDirective
+    NumericValidatorDirective,
+    ErrorMessageModalFormComponent
   ],
-  imports: [
-    NgbModule,
-    BrowserModule,
-    HttpClientModule,
-    NgOptimizedImage,
-    FormsModule
-  ],
+    imports: [
+        NgbModule,
+        BrowserModule,
+        HttpClientModule,
+        NgOptimizedImage,
+        FormsModule,
+        ReactiveFormsModule
+    ],
   providers: [
     StudentsService,
     NgbActiveModal

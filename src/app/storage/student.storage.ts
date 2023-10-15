@@ -21,7 +21,9 @@ export class StudentStorage {
     return new Student();
   }
   insert(value: Student) {
-    this.studentList.push(value);
+    const newStudent: Student = new Student();
+    newStudent.copy(value);
+    this.studentList.push(newStudent);
     this.sort();
   }
   size() {
